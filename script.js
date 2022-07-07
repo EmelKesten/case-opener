@@ -155,34 +155,42 @@ function showRarity(){
     })
 }
 
+
+let group;
+let skin;
+
 function openCase() {
-    let group = skins[Math.floor(Math.random() * skins.length)];
-    let skin = group[Math.floor(Math.random() * group.length)];
+    group = skins[Math.floor(Math.random() * skins.length)];
+    skin = group[Math.floor(Math.random() * group.length)];
     htmlElements.caseopen.innerHTML = skin.name;
     htmlElements.caseimg.src = skin.src;
     noShow(htmlElements.openbtn)
     show(htmlElements.sellbtn)
     show(htmlElements.keep)
+    console.log(skin, 'skin')
     htmlElements.sellbtn.innerHTML = `Sell for ${skin.price}`;
-    htmlElements.sellbtn.addEventListener("click", () => {
-        user.balance += skin.price;
-        htmlElements.balance.innerHTML = user.balance;
-        localStorage.setItem("user", JSON.stringify(user));
-        noShow(htmlElements.sellbtn)
-        noShow(htmlElements.keep)
-        show(htmlElements.openbtn)
-        htmlElements.caseimg.src = "/content/Recoil_Case.png";
-    })
-    htmlElements.keep.addEventListener("click", () => {	
-        user.cases.push(skin);
-        localStorage.setItem("user", JSON.stringify(user));
-        noShow(htmlElements.sellbtn)
-        noShow(htmlElements.keep)
-        show(htmlElements.openbtn)
-        htmlElements.caseimg.src = "/content/Recoil_Case.png";
-    })
     showInventory();
 }
+
+htmlElements.sellbtn.addEventListener("click", () => {
+  user.balance += skin.price;
+  htmlElements.balance.innerHTML = user.balance;
+  localStorage.setItem("user", JSON.stringify(user));
+  noShow(htmlElements.sellbtn)
+  noShow(htmlElements.keep)
+  show(htmlElements.openbtn)
+  htmlElements.caseimg.src = "/content/Recoil_Case.png";
+})
+htmlElements.keep.addEventListener("click", () => {	
+  user.cases.push(skin);
+  console.log(user.cases);
+  localStorage.setItem("user", JSON.stringify(user));
+  noShow(htmlElements.sellbtn)
+  noShow(htmlElements.keep)
+  show(htmlElements.openbtn)
+  htmlElements.caseimg.src = "/content/Recoil_Case.png";
+})
+
 
 function showInventory() {
     htmlElements.inventory.innerHTML = "";
