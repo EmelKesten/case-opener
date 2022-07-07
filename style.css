@@ -1,0 +1,203 @@
+body {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  font-family: monospace;
+  background-image: url(/bg.jpg);
+  background-color: #071225;
+  font-size: 27px;
+  background-position: center;
+  background-size: contain;
+  background-attachment: fixed;
+  overflow-x: hidden;
+  font-family: 'Rajdhani', sans-serif;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&display=swap');
+
+.header{
+  display: flex;
+  width: 100vw;
+  height: 100px;
+  background-color: #07122593;
+  backdrop-filter: blur(10px);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.balance {
+  position: absolute;
+  right: 0;
+  margin-right: 20px;
+  align-self: center;
+}
+
+.logo {
+  height: 98px;
+  align-self: center;
+  margin-left: 30px;
+}
+
+.startscreen {
+    z-index: 10;
+    text-align: center;
+    position: fixed;
+    align-self: center;
+    justify-self: center;
+    backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, 0.377);
+    height:100%;
+    width:100%;
+}
+
+.sell {
+    display: none;
+}
+
+.casediv {
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.caseimg {
+    width: 240px;
+}
+
+.skinimg  {
+    width: 240px;
+}
+
+.skinanimationopen{
+  animation-name: openanim;
+  animation-duration: 1s;
+}
+
+.skinanimationsell{
+  animation-name: sellanim;
+  animation-duration: 1s;
+}
+
+.skinanimationkeep{
+  animation-name: keepanim;
+  animation-duration: 1s;
+}
+
+@keyframes openanim {
+  from{margin-left: 100%;
+       opacity: 0;}
+  to{margin-left: 0%;}
+}
+
+@keyframes sellanim {
+  from{margin-left: 0%;}
+  to{align-self: flex-start;
+    opacity: 0;}
+}
+
+@keyframes keepanim {
+  from{margin-left: 0%;}
+  to{top: 10px;
+  opacity: 0;}
+}
+
+button {
+  font-family: 'Rajdhani', sans-serif;
+  border: none;
+  margin: 5px;
+  text-align: left;
+}
+
+.buttonsdiv {
+  display: flex;
+}
+
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 60px;
+}
+
+.content img {
+  margin-top: 0px;
+  width: 180px;
+  margin: 5px;
+  backdrop-filter: blur(10px);
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  padding: 6px;
+}
+
+.raritychart{
+  letter-spacing: 40px;
+  text-align: center;
+  margin-top: 70px;
+}
+
+.rare img{
+  background-color: #0766ff4f;
+}
+.mythical img{
+  background-color: rgba(113, 0, 200, 0.281);
+}
+.legendary img{
+  background-color: rgba(255, 0, 128, 0.291);
+}
+.ancient img{
+  background-color: rgba(255, 0, 0, 0.222);
+}
+
+  .open, .sell, .startbtn, .keep {
+    z-index: 1;
+    font-family: 'Rajdhani', sans-serif;
+    text-align: center;
+    color: #fff;
+    margin: 10px;
+    width: 260px;
+    height: 35px;
+    background: linear-gradient(#1d7751, #0e382c);
+    border: 3px #25793b solid; 
+    border-radius: 5px;
+    text-shadow: 0 0 20px rgba(255,255,255,0.3);
+    transition: .1s;
+    transform: scale(1);
+    cursor: pointer;
+    box-shadow: 0 0 50px rgba(0,117,9,0.5);
+    overflow: hidden;
+  }
+  
+  .open:hover, .sell:hover, .startbtn:hover,  .keep:hover {
+    text-shadow: 0 0 20px rgba(255,255,255,0.5);
+    transform: scale(1.05);
+  }
+  
+  .open:active, .sell.active, .startbtn:active,  .keep:active {
+    background: linear-gradient(#1f8258, #114435);
+    text-shadow: 0 0 20px rgba(255,255,255,0.5);
+    transform: scale(1);
+    box-shadow: 0 0 75px rgba(43,137,68,0.5);
+  }
+  
+  .open:after, .sell:after, .startbtn:after,  .keep:after {
+    content: "";
+    position: relative;
+    top: -120px;
+    left: -90px;
+    display: block;
+    width: 35px;
+    height: 150px;
+    background: rgba(255, 255, 255, 0.5);
+    transform: rotate(35deg);
+    -webkit-filter: blur(20px);
+    transition: none;
+  }
+  
+  .open:hover:after, .sell:hover:after, .startbtn:hover:after,  .keep:hover:after {
+    left: 400px;
+    transition: .3s ease-in-out;
+  }
+
+.keep{
+  display: none;
+}
